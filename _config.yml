@@ -9,10 +9,10 @@ highlighter: rouge
 # so be sure to set them if your theme uses them.
 #
 title : DAseq
-author : Jun Zhao
+author :
   name : Jun Zhao
   email : jun.zhao@yale.edu
-  github : kbroman
+  github : JunZhao1990
 
 
 # NOTE: Replacing this next line with your own URL
