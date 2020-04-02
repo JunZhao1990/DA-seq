@@ -1,8 +1,7 @@
-    ## Warning: replacing previous import 'cowplot::ggsave' by 'ggplot2::ggsave' when
-    ## loading 'DAseq'
+DA-seq tutorial
+---------------
 
-Overview
---------
+### Overview
 
 This tutorial shows basic steps to run DAseq on scRNA-seq datasets.
 
@@ -19,8 +18,7 @@ With DAseq, five DA cell subpopulations are detected and characterized.
 library(DAseq)
 ```
 
-Set some essential Python parameter
------------------------------------
+### Set some essential Python parameter
 
 Set Python to use, put the PATH to your Python binary here
 
@@ -34,8 +32,7 @@ Set GPU to use, put the GPU number here
 GPU <- 5
 ```
 
-Get label information
----------------------
+### Get label information
 
 Here, we will get the sample label names for two biological conditions:
 responders (R) and non-responders (NR) in the data, respectively. In
@@ -64,8 +61,7 @@ R_labels <- X.label.info[X.label.info$condition == "R", "label"]
 NR_labels <- X.label.info[X.label.info$condition == "NR", "label"]
 ```
 
-Get DA cells
-------------
+### Get DA cells
 
 This step incorporates the first two steps of DAseq algorithm. The input
 of this step includes: - `X`, the scRNA-seq data after dimension
@@ -137,8 +133,7 @@ da.cells$da.cells.plot
 
 ![](tutorial_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
-Get DA regions
---------------
+### Get DA regions
 
 In this step, selected DA cells will be clustered into several DA
 regions with outlier removal. Several input parameters are identical to
@@ -182,8 +177,7 @@ da.regions$da.region.plot
 
 ![](tutorial_files/figure-markdown_github/unnamed-chunk-12-1.png)
 
-Get markers for each DA region with STG
----------------------------------------
+### Get markers for each DA region with STG
 
 The final step of DAseq is to characterize each DA region by detecting
 genes that seprate the DA region from the rest of the cells through STG
