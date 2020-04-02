@@ -1,5 +1,9 @@
-DA-seq tutorial
----------------
+---
+layout: page
+title: DA-seq tutorial
+description: DA-seq tutorial with melanoma dataset
+---
+
 
 ### Overview
 
