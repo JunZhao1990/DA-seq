@@ -32,6 +32,7 @@ devtools::install_github("JunZhao1990/DA-seq")
 
 ## Usage
 Please check DA-seq [tutorial](pages/tutorial.html).
+Please check DA-seq [tutorial](pages/DAseq_tutorial.html).
 
 Data used in the tutorial is from [Sade-Feldman, Moshe, et al. (Cell. 2018)](https://www.sciencedirect.com/science/article/pii/S0092867418313941).
 
