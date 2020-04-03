@@ -1,5 +1,7 @@
-DA-seq tutorial
----------------
+---
+layout: page
+title: DA-seq tutorial
+---
 
 ### Overview
 
