@@ -64,17 +64,20 @@ NR_labels <- X.label.info[X.label.info$condition == "NR", "label"]
 ### Get DA cells
 
 This step incorporates the first two steps of DAseq algorithm. The input
-of this step includes: \* `X`, the scRNA-seq data after dimension
-reduction (PCA), this is included in the DAseq package as `X.melanoma`
-\* `cell.labels`, sample label for every cell in the data, this is
-included in the DAseq package as `X.label.melanoma` \* `labels.1`,
-sample label names that correspond to one biological condition (R),
-`R_labels` \* `labels.2`, sample label names that correspond to the
-other biological condition (NR), `NR_labels` \* `k.vector`, values of
-*k* to use for the calculation of score vector with *kNN*, here we will
-use *k* from 50 to 500 \* `plot.embedding`, 2D embedding of the data to
-visualize the results (t-SNE), this is included in the DAseq package as
-`X.2d.melanoma`
+of this step includes:
+
+-   `X`, the scRNA-seq data after dimension reduction (PCA), this is
+    included in the DAseq package as `X.melanoma`
+-   `cell.labels`, sample label for every cell in the data, this is
+    included in the DAseq package as `X.label.melanoma`
+-   `labels.1`, sample label names that correspond to one biological
+    condition (R), `R_labels`
+-   `labels.2`, sample label names that correspond to the other
+    biological condition (NR), `NR_labels`
+-   `k.vector`, values of *k* to use for the calculation of score vector
+    with *kNN*, here we will use *k* from 50 to 500
+-   `plot.embedding`, 2D embedding of the data to visualize the results
+    (t-SNE), this is included in the DAseq package as `X.2d.melanoma`
 
 ``` r
 da.cells <- getDAcells(
@@ -87,9 +90,11 @@ da.cells <- getDAcells(
 )
 ```
 
-The output of this step is a list of results: \* `da.ratio`, score
-vector for each cell \* `da.pred`, prediction values from logistic
-regression \* `da.cell.idx`, index of DA cells
+The output of this step is a list of results:
+
+-   `da.ratio`, score vector for each cell
+-   `da.pred`, prediction values from logistic regression
+-   `da.cell.idx`, index of DA cells
 
 ``` r
 str(da.cells[1:3])
@@ -141,10 +146,12 @@ regions with outlier removal. Several input parameters are identical to
 that of `getDAcells()`:
 `X, cell.labels, labels.1, labels.2, plot.embedding`.
 
-Other input includes: \* `cell.idx`: the `da.cell.idx` slot of the
-output of `getDAcells()` \* `k`: number of clusters, this will be
-defined by the user, here we use `k=5` \* `alpha`: the proportions of DA
-cells to be removed as outliers
+Other input includes:
+
+-   `cell.idx`: the `da.cell.idx` slot of the output of `getDAcells()`
+-   `k`: number of clusters, this will be defined by the user, here we
+    use `k=5`
+-   `alpha`: the proportions of DA cells to be removed as outliers
 
 ``` r
 da.regions <- getDAregion(
@@ -157,9 +164,10 @@ da.regions <- getDAregion(
 )
 ```
 
-The output is a list of results: \* `cluster.res`, clustering result of
-DA cells, 0 means outlier cells \* `DA.stat`, statistics of each DA
-region
+The output is a list of results:
+
+-   `cluster.res`, clustering result of DA cells, 0 means outlier cells
+-   `DA.stat`, statistics of each DA region
 
 ``` r
 str(da.regions[1:2])
@@ -216,11 +224,13 @@ da.STG <- STGmarkerFinder(
 )
 ```
 
-The output is a list of results: \* `da.markers`, a list of data frames,
-each data frame contains markers for each DA region \* `accuracy`,
-accuracy of STG for each DA region \* `model`, the actual model from STG
-for each DA region, please refer to the documentation of
-`STGmarkerFinder()`
+The output is a list of results:
+
+-   `da.markers`, a list of data frames, each data frame contains
+    markers for each DA region
+-   `accuracy`, accuracy of STG for each DA region
+-   `model`, the actual model from STG for each DA region, please refer
+    to the documentation of `STGmarkerFinder()`
 
 Top markers for DA region 2 are shown:
 
