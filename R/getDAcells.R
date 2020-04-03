@@ -69,7 +69,7 @@ getDAcells <- function(
   py_run_string(paste("os.environ['CUDA_VISIBLE_DEVICES'] = '", GPU, "'", sep = ""))
 
   # get neural network predictions for each cell
-  cat("Running neural network classification.\n")
+  cat("Running logistic regression.\n")
   source_python(file = paste(system.file(package="DAseq"), "DA_logit.py", sep = "/"))
   # py_run_string(paste("epochs = ", epochs, sep = ""))
   py_run_string(paste("k_folds = ", k.folds, sep = ""))
