@@ -42,6 +42,7 @@ getDAcells <- function(
   do.plot = T, plot.embedding = NULL, size = 0.5,
   python.use = "/usr/bin/python", GPU = ""
 ){
+  cat("Using GPU ", GPU, ".\n", sep = "")
 
   # get DA score vector for each cell
   cat("Calculating DA score vector.\n")

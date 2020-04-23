@@ -8,6 +8,8 @@ from sklearn.model_selection import train_test_split
 
 def STG_FS(X_in,Y_in,num_runs=10,lam=1):
 #    print(os.environ['CUDA_VISIBLE_DEVICES'])
+    print("Using GPU {}.".format(os.environ['CUDA_VISIBLE_DEVICES']))
+    
     X_in = X_in.copy()
     Y_in = Y_in.copy()
     #Comput gene counts and sort top 1000 genes

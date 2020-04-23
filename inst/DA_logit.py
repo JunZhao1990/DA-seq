@@ -28,6 +28,8 @@ def make_splits(n, k):
 def k_fold_predict(data, labels, k_folds, architecture=[8]*8, activations='relu', end_activation='sigmoid'):
     # os.environ['CUDA_VISIBLE_DEVICES'] = '4'
     # build layers
+    
+    print("Using GPU {}.".format(os.environ['CUDA_VISIBLE_DEVICES']))
 
     layers = []
 

@@ -164,6 +164,7 @@ runSTG <- function(
 ){
   # set Python
   use_python(python = python.use, required = T)
+  py_run_string(paste("os.environ['CUDA_VISIBLE_DEVICES'] = '", GPU, "'", sep = ""))
   source_python(file = paste(system.file(package="DAseq"), "DA_STG.py", sep = "/"))
 
   if(!is.null(label.2)){
@@ -190,10 +191,10 @@ runSTG <- function(
 
   da.markers.logfc <- sapply(da.markers, function(x, x.data1, x.data2){
     log2(mean(x.data1[x,] + 1/100000) / mean(x.data2[x,] + 1/100000))
-  }, x.data1 = X[,X.labels == 1], x.data2 = X[,X.labels == 0])
+  }, x.data1 = X[,X.label.bin == 1], x.data2 = X[,X.label.bin == 0])
   da.markers.pval <- sapply(da.markers, function(x, x.data1, x.data2){
     wilcox.test(x = x.data1[x,], y = x.data2[x,])$p.value
-  }, x.data1 = X[,X.labels == 1], x.data2 = X[,X.labels == 0])
+  }, x.data1 = X[,X.label.bin == 1], x.data2 = X[,X.label.bin == 0])
   da.markers.result <- data.frame(
     gene = da.markers,
     avg_logFC = da.markers.logfc,
